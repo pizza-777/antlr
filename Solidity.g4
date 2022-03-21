@@ -68,6 +68,7 @@ contractPart
 stateVariableDeclaration
   : typeName
     ( PublicKeyword | InternalKeyword | PrivateKeyword | ConstantKeyword | ImmutableKeyword | overrideSpecifier )*
+    ( 'static' )?
     identifier ('=' expression)? ';' ;
 
 fileLevelConstant
