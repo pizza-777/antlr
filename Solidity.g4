@@ -148,7 +148,8 @@ typeName
   | 'address' 'payable' ;
 
 userDefinedTypeName
-  : identifier ( '.' identifier )* ;
+  : identifier ( '.' identifier )*
+  | '{' nameValueList '}' ;
 
 mappingKey
   : elementaryTypeName
