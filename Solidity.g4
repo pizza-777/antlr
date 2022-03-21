@@ -67,8 +67,7 @@ contractPart
 
 stateVariableDeclaration
   : typeName
-    ( PublicKeyword | InternalKeyword | PrivateKeyword | ConstantKeyword | ImmutableKeyword | overrideSpecifier )*
-    ( 'static' )?
+    (StaticKeyword | PublicKeyword | InternalKeyword | PrivateKeyword | ConstantKeyword | ImmutableKeyword | overrideSpecifier )*
     identifier ('=' expression)? ';' ;
 
 fileLevelConstant
@@ -465,7 +464,6 @@ ReservedKeyword
   | 'null'
   | 'of'
   | 'relocatable'
-  | 'static'
   | 'switch'
   | 'try'
   | 'typeof' ;
@@ -482,6 +480,7 @@ InternalKeyword : 'internal' ;
 PayableKeyword : 'payable' ;
 PrivateKeyword : 'private' ;
 PublicKeyword : 'public' ;
+StaticKeyword : 'static' ;
 VirtualKeyword : 'virtual' ;
 PureKeyword : 'pure' ;
 TypeKeyword : 'type' ;
