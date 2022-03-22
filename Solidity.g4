@@ -21,7 +21,7 @@ pragmaDirective
   : 'pragma' pragmaName pragmaValue ';' ;
 
 pragmaName
-  : identifier ;
+  : ('solidity'|'ton-solidity') ;
 
 pragmaValue
   : version | expression ;
@@ -227,7 +227,7 @@ breakStatement
   : 'break' ';' ;
 
 returnStatement
-  : 'return' expression? ';' ;
+  : 'return' ('{' nameValueList '}')? expression? ';' ;
 
 throwStatement
   : 'throw' ';' ;
@@ -501,7 +501,7 @@ IdentifierStart
 
 fragment
 IdentifierPart
-  : [a-zA-Z0-9$_-] ;
+  : [a-zA-Z0-9$_] ;
 
 stringLiteral
   : StringLiteralFragment+ ;
