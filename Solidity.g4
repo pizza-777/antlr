@@ -176,6 +176,7 @@ statement
   | tryStatement
   | whileStatement
   | forStatement
+  | forRangeStatement
   | block
   | inlineAssemblyStatement
   | doWhileStatement
@@ -213,6 +214,9 @@ uncheckedStatement
 
 forStatement
   : 'for' '(' ( simpleStatement | ';' ) ( expressionStatement | ';' ) expression? ')' statement ;
+
+forRangeStatement
+  : 'for' '(' ( variableDeclaration | '(' variableDeclarationList ')' ) ':' identifier ')' statement ;
 
 inlineAssemblyStatement
   : 'assembly' StringLiteralFragment? assemblyBlock ;
