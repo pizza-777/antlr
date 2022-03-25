@@ -18,10 +18,12 @@ sourceUnit
     )* EOF ;
 
 pragmaDirective
-  : 'pragma' pragmaName pragmaValue ';' ;
+  : 'pragma' pragmaName pragmaValue? ';' ;
 
 pragmaName
-  : ('solidity'|'ton-solidity') ;
+  : ('solidity'|'ton-solidity')
+  | 'AbiHeader'
+  | 'msgValue' ;
 
 pragmaValue
   : version | expression ;
