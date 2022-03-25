@@ -108,7 +108,7 @@ returnParameters
   : 'returns' parameterList ;
 
 modifierList
-  : (ExternalKeyword | PublicKeyword | InternalKeyword | PrivateKeyword | VirtualKeyword | stateMutability | modifierInvocation | overrideSpecifier )* ;
+  : (ExternalKeyword | PublicKeyword | InternalKeyword | PrivateKeyword |  InlineKeyword | VirtualKeyword | stateMutability | modifierInvocation | overrideSpecifier )* ;
 
 eventDefinition
   : 'event' identifier eventParameterList AnonymousKeyword? ';' ;
@@ -468,7 +468,6 @@ ReservedKeyword
   | 'default'
   | 'final'
   | 'in'
-  | 'inline'
   | 'let'
   | 'match'
   | 'null'
@@ -495,7 +494,7 @@ VirtualKeyword : 'virtual' ;
 PureKeyword : 'pure' ;
 TypeKeyword : 'type' ;
 ViewKeyword : 'view' ;
-
+InlineKeyword : 'inline' ;
 ConstructorKeyword : 'constructor' ;
 FallbackKeyword : 'fallback' ;
 ReceiveKeyword : 'receive' ;
