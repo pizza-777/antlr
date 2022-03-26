@@ -178,6 +178,7 @@ statement
   : ifStatement
   | tryStatement
   | whileStatement
+  | repeatStatement
   | forStatement
   | forRangeStatement
   | block
@@ -208,6 +209,9 @@ catchClause : 'catch' ( identifier? parameterList )? block ;
 
 whileStatement
   : 'while' '(' expression ')' statement ;
+
+repeatStatement
+  : 'repeat' '(' expression ')' statement ;
 
 simpleStatement
   : ( variableDeclarationStatement | expressionStatement ) ;
