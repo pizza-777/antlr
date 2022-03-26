@@ -151,7 +151,7 @@ typeName
 
 userDefinedTypeName
   : identifier ( '.' identifier )*
-  | '{' nameValueList '}' ;
+  | '{' ( nameValueList | expressionList ) '}' ;
 
 mappingKey
   : elementaryTypeName
