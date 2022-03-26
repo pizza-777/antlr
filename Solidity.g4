@@ -223,7 +223,7 @@ forStatement
   : 'for' '(' ( simpleStatement | ';' ) ( expressionStatement | ';' ) expression? ')' statement ;
 
 forRangeStatement
-  : 'for' '(' ( variableDeclaration | '(' variableDeclarationList ')' ) ':' identifier ')' statement ;
+  : 'for' '(' ( variableDeclaration | '(' variableDeclarationList ')' ) ':' ( identifier | expression ) ')' statement ;
 
 inlineAssemblyStatement
   : 'assembly' StringLiteralFragment? assemblyBlock ;
