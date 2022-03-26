@@ -102,7 +102,8 @@ functionDescriptor
   : 'function' identifier?
   | ConstructorKeyword
   | FallbackKeyword
-  | ReceiveKeyword ;
+  | ReceiveKeyword
+  | onBounceKeyword ;
 
 returnParameters
   : 'returns' parameterList ;
@@ -498,6 +499,7 @@ InlineKeyword : 'inline' ;
 ConstructorKeyword : 'constructor' ;
 FallbackKeyword : 'fallback' ;
 ReceiveKeyword : 'receive' ;
+onBounceKeyword : 'onBounce' ;
 
 overrideSpecifier : 'override' ( '(' userDefinedTypeName (',' userDefinedTypeName)* ')' )? ;
 
