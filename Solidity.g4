@@ -475,7 +475,6 @@ ReservedKeyword
   | 'in'
   | 'let'
   | 'match'
-  | 'null'
   | 'of'
   | 'relocatable'
   | 'switch'
