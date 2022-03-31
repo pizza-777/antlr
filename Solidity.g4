@@ -150,8 +150,7 @@ typeName
   | 'address' 'payable' ;
 
 userDefinedTypeName
-  : identifier ( '.' identifier )*
-  | '{' ( nameValueList | expressionList ) '}' ;
+  : identifier ( '.' identifier )* ;
 
 mappingKey
   : elementaryTypeName
@@ -289,6 +288,7 @@ expression
   | expression '[' expression? ':' expression? ']'
   | expression '.' identifier
   | expression '{' nameValueList '}'
+  | nameValueBlockStatement
   | expression '(' functionCallArguments ')'
   | '(' expression ')'
   | ('++' | '--') expression
@@ -321,6 +321,9 @@ primaryExpression
   | PayableKeyword
   | tupleExpression
   | typeNameExpression ('[' ']')? ;
+
+nameValueBlockStatement
+  : '{' ( nameValueList? | expressionList? ) '}' ;
 
 expressionList
   : expression (',' expression)* ;
