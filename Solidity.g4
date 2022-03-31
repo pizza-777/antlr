@@ -320,8 +320,8 @@ primaryExpression
   | TypeKeyword
   | PayableKeyword
   | tupleExpression
-  | typeNameExpression ('[' ']')? ;
-
+  | typeNameExpression ('[' ']')? 
+  | typeName ;
 nameValueBlockStatement
   : '{' ( nameValueList? | expressionList? ) '}' ;
 
