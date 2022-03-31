@@ -23,7 +23,9 @@ pragmaDirective
 pragmaName
   : ('solidity'|'ton-solidity')
   | 'AbiHeader'
-  | 'msgValue' ;
+  | 'msgValue'
+  | 'ignoreIntOverflow'
+  | 'experimental' ;
 
 pragmaValue
   : version | expression ;
@@ -320,7 +322,7 @@ primaryExpression
   | TypeKeyword
   | PayableKeyword
   | tupleExpression
-  | typeNameExpression ('[' ']')? 
+  | typeNameExpression ('[' ']')?
   | typeName ;
 nameValueBlockStatement
   : '{' ( nameValueList? | expressionList? ) '}' ;
