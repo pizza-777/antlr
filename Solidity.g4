@@ -240,7 +240,7 @@ breakStatement
   : 'break' ';' ;
 
 returnStatement
-  : 'return' ('{' nameValueList '}')? expression? ';' ;
+  : 'return' expression? ';' ;
 
 throwStatement
   : 'throw' ';' ;
@@ -291,6 +291,7 @@ expression
   | expression '[' expression? ':' expression? ']'
   | expression '.' identifier
   | expression '{' nameValueList '}'
+  | '{' nameValueList '}' expression
   | nameValueBlockStatement
   | expression '(' functionCallArguments ')'
   | '(' expression ')'
