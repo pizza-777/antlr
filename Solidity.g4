@@ -291,7 +291,7 @@ expression
   | expression '[' expression? ':' expression? ']'
   | expression '.' identifier
   | expression '{' nameValueList '}'
-  | '{' nameValueList '}' expression
+  | '{' nameValueList? '}' expression
   | nameValueBlockStatement
   | expression '(' functionCallArguments ')'
   | '(' expression ')'
