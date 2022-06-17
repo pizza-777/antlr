@@ -21,7 +21,7 @@ pragmaDirective
   : 'pragma' pragmaName pragmaValue? ';' ;
 
 pragmaName
-  : ('solidity'|'ton-solidity')
+  : ('solidity'|'ton-solidity'|'ever-solidity')
   | 'AbiHeader'
   | 'msgValue'
   | 'ignoreIntOverflow'
