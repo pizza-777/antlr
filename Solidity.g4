@@ -25,10 +25,11 @@ pragmaName
   | 'AbiHeader'
   | 'msgValue'
   | 'ignoreIntOverflow'
-  | 'experimental' ;
+  | 'experimental'
+  | 'copyleft' ;
 
 pragmaValue
-  : version | expression ;
+  : version | expressionList ;
 
 version
   : versionConstraint ('||'? versionConstraint)* ;
