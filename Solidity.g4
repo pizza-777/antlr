@@ -202,7 +202,7 @@ expressionStatement
 ifStatement
   : 'if' '(' expression ')' statement ( 'else' statement )? ;
 
-tryStatement : 'try' expression returnParameters? block catchClause+ ;
+tryStatement : 'try' block catchClause+ ;
 
 // In reality catch clauses still are not processed as below
 // the identifier can only be a set string: "Error". But plans
