@@ -283,7 +283,7 @@ TvmCell
   : 'TvmCell';
 
 optionalTypeName
-  : 'optional(' typeName (',' typeName)* ')' ;
+  : 'optional' '(' typeName (',' typeName)* ')' ;
 
 expression
   : expression ('++' | '--')
