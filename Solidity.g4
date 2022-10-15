@@ -26,7 +26,8 @@ pragmaName
   | 'msgValue'
   | 'ignoreIntOverflow'
   | 'experimental'
-  | 'copyleft' ;
+  | 'copyleft'
+  | 'upgrade' ;
 
 pragmaValue
   : version | expressionList ;
