@@ -21,13 +21,15 @@ pragmaDirective
   : 'pragma' pragmaName pragmaValue? ';' ;
 
 pragmaName
-  : ('solidity'|'ton-solidity'|'ever-solidity')
-  | 'AbiHeader'
-  | 'msgValue'
-  | 'ignoreIntOverflow'
-  | 'experimental'
-  | 'copyleft'
-  | 'upgrade' ;
+  //resolve conflict with function with the same name
+  : ('ton-solidity'|'ever-solidity')
+  // | 'AbiHeader'
+  // | 'msgValue'
+  // | 'ignoreIntOverflow'
+  // | 'experimental'
+  // | 'copyleft'
+  | identifier ;
+
 
 pragmaValue
   : version | expressionList ;
