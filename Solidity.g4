@@ -301,7 +301,7 @@ expression
   | '(' expression ')'
   | ('++' | '--') expression
   | ('+' | '-') expression
-  | ('after' | 'delete') expression
+  | 'delete' expression
   | '!' expression
   | '~' expression
   | expression '**' expression
