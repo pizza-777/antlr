@@ -472,7 +472,7 @@ HexDigits
 
 NumberUnit
   : 'nTon' | 'ton' | 'Ton' | 'micro' | 'microton' | 'milli' | 'milliton' | 'kiloton' | 'kTon' | 'megaton' | 'MTon' | 'gigaton' | 'GTon'
-  | 'nanoever' | 'ever' | 'Ever' | 'microever' | 'mili' | 'milliever' | 'kiloever' | 'kEver' | 'megaever' | 'MEver' | 'gigaever' | 'GEver'
+  | 'nano' | 'nanoever' | 'ever' | 'Ever' | 'microever' | 'mili' | 'milliever' | 'kiloever' | 'kEver' | 'megaever' | 'MEver' | 'gigaever' | 'GEver'
   | 'seconds' | 'minutes' | 'hours' | 'days' | 'weeks' | 'years' ;
 
 hexLiteral : HexLiteralFragment+ ;
