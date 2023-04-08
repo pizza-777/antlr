@@ -120,7 +120,8 @@ functionDescriptor
   | ConstructorKeyword
   | FallbackKeyword
   | ReceiveKeyword
-  | onBounceKeyword ;
+  | onBounceKeyword
+  | onTickTockKeyword ;
 
 returnParameters
   : 'returns' parameterList ;
@@ -526,7 +527,8 @@ ResponsibleKeyword : 'responsible' ;
 ConstructorKeyword : 'constructor' ;
 FallbackKeyword : 'fallback' ;
 ReceiveKeyword : 'receive' ;
-onBounceKeyword : 'onBounce' ;
+onBounceKeyword : 'onBounce';
+onTickTockKeyword: 'onTickTock' ;
 
 overrideSpecifier : 'override' ( '(' userDefinedTypeName (',' userDefinedTypeName)* ')' )? ;
 
