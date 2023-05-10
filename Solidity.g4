@@ -33,7 +33,7 @@ pragmaName
 
 
 pragmaValue
-  : version | expressionList ;
+  : '*' | version | expressionList ;
 
 version
   : versionConstraint ('||'? versionConstraint)* ;
@@ -99,7 +99,7 @@ usingForObject
 usingForObjectDirective
   : userDefinedTypeName ( 'as' userDefinableOperators )?;
 
-  userDefinableOperators
+userDefinableOperators
   : '|' | '&' | '^' | '~' | '+' | '-' | '*' | '/' | '%' | '==' | '!=' | '<' | '>' | '<=' | '>=' ;
 
 structDefinition
@@ -166,6 +166,7 @@ typeName
   | typeName '[' expression? ']'
   | functionTypeName
   | optionalTypeName
+  | vectorTypeName
   | 'address' 'payable' ;
 
 userDefinedTypeName
@@ -244,7 +245,10 @@ forRangeStatement
   : 'for' '(' ( variableDeclaration | '(' variableDeclarationList ')' ) ':' ( identifier | expression ) ')' statement ;
 
 inlineAssemblyStatement
-  : 'assembly' StringLiteralFragment? assemblyBlock ;
+  : 'assembly' StringLiteralFragment? ('(' inlineAssemblyStatementFlag ')')? assemblyBlock ;
+
+inlineAssemblyStatementFlag
+  : stringLiteral;
 
 doWhileStatement
   : 'do' statement 'while' '(' expression ')' ';' ;
@@ -300,6 +304,9 @@ TvmCell
 optionalTypeName
   : 'optional' '(' typeName (',' typeName)* ')' ;
 
+vectorTypeName
+  : 'vector' '(' typeName (',' typeName)* ')' ;
+
 expression
   : expression ('++' | '--')
   | 'new' typeName
@@ -342,6 +349,7 @@ primaryExpression
   | tupleExpression
   | typeNameExpression ('[' ']')?
   | typeName ;
+
 nameValueBlockStatement
   : '{' ( nameValueList? | expressionList? ) '}' ;
 
@@ -379,7 +387,6 @@ assemblyItem
   | BreakKeyword
   | ContinueKeyword
   | LeaveKeyword
-  | subAssembly
   | numberLiteral
   | stringLiteral
   | hexLiteral ;
@@ -397,16 +404,19 @@ assemblyLocalDefinition
   : 'let' assemblyIdentifierOrList ( ':=' assemblyExpression )? ;
 
 assemblyAssignment
-  : assemblyIdentifierOrList ':=' assemblyExpression ;
+  : assemblyIdentifierOrList ':=' assemblyExpression;
 
 assemblyIdentifierOrList
-  : identifier | assemblyMember | '(' assemblyIdentifierList ')' ;
+  : identifier
+  | assemblyMember
+  | assemblyIdentifierList
+  | '(' assemblyIdentifierList ')';
 
 assemblyIdentifierList
   : identifier ( ',' identifier )* ;
 
 assemblyStackAssignment
-  : '=:' identifier ;
+  : assemblyExpression '=:' identifier ;
 
 labelDefinition
   : identifier ':' ;
@@ -433,10 +443,7 @@ assemblyIf
   : 'if' assemblyExpression assemblyBlock ;
 
 assemblyLiteral
-  : stringLiteral | DecimalNumber | HexNumber | hexLiteral ;
-
-subAssembly
-  : 'assembly' identifier assemblyBlock ;
+  : stringLiteral | DecimalNumber | HexNumber | hexLiteral | BooleanLiteral ;
 
 tupleExpression
   : '(' ( expression? ( ',' expression? )* ) ')'
@@ -498,6 +505,7 @@ ReservedKeyword
   | 'in'
   | 'let'
   | 'match'
+  | 'null'
   | 'of'
   | 'relocatable'
   | 'switch'
