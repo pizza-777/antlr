@@ -12,6 +12,7 @@ sourceUnit
     | enumDefinition
     | structDefinition
     | functionDefinition
+    | assemblyFunctionDefinition
     | fileLevelConstant
     | customErrorDefinition
     | typeDefinition
@@ -392,7 +393,7 @@ assemblyItem
   | hexLiteral ;
 
 assemblyExpression
-  : assemblyCall | assemblyLiteral | assemblyMember ;
+  : assemblyCall | assemblyLiteral ','? | assemblyMember ;
 
 assemblyMember
   : identifier '.' identifier ;
@@ -429,8 +430,7 @@ assemblyCase
   | 'default' assemblyBlock ;
 
 assemblyFunctionDefinition
-  : 'function' identifier '(' assemblyIdentifierList? ')'
-    assemblyFunctionReturns? assemblyBlock ;
+  : 'function' identifier parameterList AssemblyKeyword stateMutability* returnParameters? assemblyBlock ;
 
 assemblyFunctionReturns
   : ( '->' assemblyIdentifierList ) ;
@@ -521,6 +521,7 @@ LeaveKeyword : 'leave' ;
 ExternalKeyword : 'external' ;
 IndexedKeyword : 'indexed' ;
 InternalKeyword : 'internal' ;
+AssemblyKeyword : 'assembly' ;
 PayableKeyword : 'payable' ;
 PrivateKeyword : 'private' ;
 PublicKeyword : 'public' ;
