@@ -465,7 +465,7 @@ BooleanLiteral
   : 'true' | 'false' ;
 
 DecimalNumber
-  : ( DecimalDigits | (DecimalDigits? '.' DecimalDigits) ) ( [eE] DecimalDigits )? ;
+  : ( DecimalDigits | (DecimalDigits? '.' DecimalDigits) ) ([eE] '-'? DecimalDigits)? ;
 
 fragment
 DecimalDigits
